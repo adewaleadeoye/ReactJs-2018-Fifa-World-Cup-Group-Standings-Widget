@@ -1,7 +1,9 @@
  /* App Css */
- .textStyle{font-size:12px}
+ .text-style{font-size:13px}
  .statusColor{color:red}
  .dayText{font-size:13px;display:block;text-align:center}
  .weekDayText{font-size:11px;margin-top:-6px;display:block;text-align:center}
- .selectCursor{cursor: pointer}
+ .selectCursor{cursor:pointer}
  .teamNameHeader{margin:0px;font-size:15px}
+ .next-prev-icon{font-size:22px;cursor:pointer;}
+ .standings-h3{margin: 0px;font-size: 17px;}

@@ -9,17 +9,18 @@ class GroupTableContainer extends Component {
     super(props);
     this.state = {
         standings: [],
-        group_label:undefined,
-        next_group_id:undefined,
-        prev_group_id:undefined
+        group_label:undefined, //Initialize group label (expected values Group A, Group B etc)
+        next_group_id:undefined, //Navigate to group
+        prev_group_id:undefined //Navigate back to previous group
     };
     this.handleNavClick = this.handleNavClick.bind(this);
   }
 
+  //Fetch group data from server
   fetchFirst(group_id) {
     console.log("Group Id: "+group_id);
     var that = this;
-      fetch('http://fcnaija.com/display-standings?group_id='+group_id).then(function (response) {
+      fetch('http://fcnaija.com/world-cup-2018/display-standings?group_id='+group_id).then(function (response) {
         return response.json();
       }).then(function (result) {
         console.log(JSON.stringify(result));
@@ -31,21 +32,22 @@ class GroupTableContainer extends Component {
 
   } 
   
+  //Group navigation handler
   handleNavClick(group_id) {
     this.fetchFirst(group_id);
   }
   
   componentDidMount() {
     this.fetchFirst(28891);
-  }    
+  }
+      
   render() {
     return (
         <div>      
-             <h1 className="w3-center">STANDINGS</h1>
         <GroupTitleAndNav group_label={this.state.group_label} prev_group_id={this.state.prev_group_id} 
         next_group_id={this.state.next_group_id} handleNavClick={this.handleNavClick}/>
           <div className="w3-padding">
-            <div className="w3-row">
+            <div className="w3-row text-style">
               <div className="w3-col s1 l1">&nbsp;</div>
               <div className="w3-col s3 l3">&nbsp;</div>
               <div className="w3-col s1 l1">MP</div>
